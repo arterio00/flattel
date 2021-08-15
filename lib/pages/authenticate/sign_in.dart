@@ -6,7 +6,6 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:swipe/pages/home/home.dart';
 import 'package:swipe/themes/logo.dart';
 import 'package:swipe/themes/colors.dart';
-import 'dart:io' show Platform;
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
