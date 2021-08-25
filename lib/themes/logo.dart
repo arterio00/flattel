@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 class Logo extends StatelessWidget {
-  const Logo({Key? key}) : super(key: key);
+  final double width;
+  final double height;
+  final double? fontSize;
+  const Logo(
+      {Key? key,
+      this.width = 41.59,
+      this.height = 41.34,
+      this.fontSize = 41.62})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +23,14 @@ class Logo extends StatelessWidget {
               opacity: 0.4,
               child: Container(
                 margin: const EdgeInsets.fromLTRB(20, 0, 15, 0),
-                height: 41.34,
-                width: 41.59,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
+                height: height,
+                width: width,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
                     colors: [MyColor.logo1, MyColor.logo2],
                   ),
                   borderRadius:
-                      BorderRadius.all(Radius.elliptical(41.34, 41.59)),
+                      BorderRadius.all(Radius.elliptical(height, width)),
                 ),
                 child: const Padding(
                   padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
@@ -37,22 +45,23 @@ class Logo extends StatelessWidget {
               ),
             ),
             Container(
-              height: 40.18,
-              width: 41.59,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
+              height: height,
+              width: width,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
                   colors: [MyColor.logo1, MyColor.logo2],
                 ),
-                borderRadius: BorderRadius.all(Radius.elliptical(40.18, 41.59)),
+                borderRadius:
+                    BorderRadius.all(Radius.elliptical(height, width)),
               ),
             ),
           ],
         ),
-        const Text(
+        Text(
           'Swipe',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 41.62,
+            fontSize: fontSize,
             fontWeight: FontWeight.w900,
           ),
         ),

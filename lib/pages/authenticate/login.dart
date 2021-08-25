@@ -24,9 +24,9 @@ class LoginScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const SizedBox(height: 166),
+            const SizedBox(height: 90),
             const Logo(),
-            const SizedBox(
+            Container(
               height: 39.58,
             ),
             const SizedBox(
@@ -47,9 +47,7 @@ class LoginScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SignInScreen();
-                }));
+                Navigator.pushNamed(context, '/sign_in');
               },
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(86, 195, 133, 1),
