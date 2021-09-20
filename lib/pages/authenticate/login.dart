@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swipe/pages/authenticate/registration.dart';
+import 'package:swipe/pages/authenticate/routing.dart';
 import 'package:swipe/pages/authenticate/sign_in.dart';
 import 'package:swipe/themes/logo.dart';
 import 'package:swipe/themes/colors.dart';
@@ -24,7 +25,9 @@ class LoginScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const SizedBox(height: 90),
+            SizedBox(
+              height: (MediaQuery.of(context).size.height) / 5,
+            ),
             const Logo(),
             Container(
               height: 39.58,
@@ -47,7 +50,8 @@ class LoginScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/sign_in');
+                Navigator.of(context)
+                    .push(Routing.createRoute(const SignInScreen()));
               },
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(86, 195, 133, 1),
@@ -79,10 +83,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/registration');
+                  Navigator.of(context)
+                      .push(Routing.createRoute(const Registration()));
                 },
                 child: const Text(
                   'Регистрация',

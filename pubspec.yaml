@@ -40,6 +40,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   pin_code_fields: ^7.3.0
+  image_picker: ^0.8.4
+  flutter_staggered_grid_view: ^0.4.0
+  google_maps_flutter: ^2.0.10
+  
   
      
   
@@ -69,12 +73,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/home_icon/filters.svg
-    - assets/home_icon/menu.svg
-    - assets/home_icon/check-circle.svg
-    - assets/home_icon/avatar.png
-    - assets/home_icon/logo.svg
-    - assets/home_icon/settings.svg
+    - assets/home_icon/
     
     
   #   - images/a_dot_ham.jpeg
@@ -97,6 +96,7 @@ flutter:
         - asset: fonts/Montserrat-BlackItalic.ttf
         - asset: fonts/Montserrat-Regular.ttf
         - asset: fonts/Montserrat-SemiBold.ttf
+        - asset: fonts/Montserrat-Medium.ttf
       
    
   # For details regarding fonts from package dependencies,

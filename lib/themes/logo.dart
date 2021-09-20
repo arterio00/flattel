@@ -19,29 +19,22 @@ class Logo extends StatelessWidget {
       children: [
         Stack(
           children: [
-            Opacity(
-              opacity: 0.4,
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(20, 0, 15, 0),
-                height: height,
-                width: width,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [MyColor.logo1, MyColor.logo2],
-                  ),
-                  borderRadius:
-                      BorderRadius.all(Radius.elliptical(height, width)),
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 0, 15, 0),
+              height: height,
+              width: width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    MyColor.logo1.withOpacity(0.4),
+                    MyColor.logo2.withOpacity(0.4),
+                  ],
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [MyColor.logo1, MyColor.logo2],
-                        ),
-                        shape: BoxShape.rectangle),
-                  ),
-                ),
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(width),
+                    bottomRight: Radius.circular(width)),
               ),
             ),
             Container(
@@ -49,6 +42,8 @@ class Logo extends StatelessWidget {
               width: width,
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: [MyColor.logo1, MyColor.logo2],
                 ),
                 borderRadius:

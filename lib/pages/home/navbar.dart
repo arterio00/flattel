@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:swipe/themes/logo.dart';
 
 class NavBar extends StatelessWidget {
-  const NavBar({Key? key}) : super(key: key);
-
+  const NavBar({Key? key, required this.logOut}) : super(key: key);
+  final Function()? logOut;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -63,6 +61,23 @@ class NavBar extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(10, 20, 70, 20),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    primary: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                        side: const BorderSide(width: 1, color: Colors.white),
+                        borderRadius: BorderRadius.circular(35)),
+                    fixedSize: const Size(190, 62),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Получить доступ',
+                    style: TextStyle(fontSize: 16),
+                  )),
+            ),
             ListTile(
               title: const Text(
                 'Лента объявлений',
@@ -75,14 +90,15 @@ class NavBar extends StatelessWidget {
                 'Личный кабинет',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
-              onTap: () => null,
+              onTap: () => Navigator.pushNamed(context, '/personal_account'),
             ),
             ListTile(
-              title: const Text(
-                'Мое объявление',
-                style: TextStyle(fontSize: 16, color: Colors.white),
-              ),
-              onTap: () => null,
+              title: const Text('Мое объявление',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  )),
+              onTap: () => Navigator.pushNamed(context, '/new_ad'),
             ),
             ListTile(
               title: const Text(
@@ -118,6 +134,13 @@ class NavBar extends StatelessWidget {
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               onTap: () => null,
+            ),
+            ListTile(
+              title: const Text(
+                'Выйти',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+              onTap: logOut,
             ),
           ],
         ),
