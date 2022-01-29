@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1048786276680:android:5ec2801a8dff038430a37d",
+        "mobilesdk_app_id": "1:1048786276680:android:e31d99418371df9430a37d",
         "android_client_info": {
-          "package_name": "com.example.swipe"
+          "package_name": "com.example.flattel"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "1048786276680-f5k5s6hqghq0304lrsllau5bnnqhuv3g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flattel",
+            "certificate_hash": "4bf917298216d4060bb3aca8799dc03b852c09b8"
+          }
+        },
         {
           "client_id": "1048786276680-de81h013nt59as3t8eqtldn74jsic0tn.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +37,13 @@
             {
               "client_id": "1048786276680-de81h013nt59as3t8eqtldn74jsic0tn.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1048786276680-2gijjut610su97cumfrln28mjd37sgbf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.swipe"
+              }
             }
           ]
         }

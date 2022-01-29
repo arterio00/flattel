@@ -1,6 +1,6 @@
 {
-    "name": "swipe",
-    "short_name": "swipe",
+    "name": "flattel",
+    "short_name": "flattel",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

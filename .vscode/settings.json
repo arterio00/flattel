@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
         "Апартаменты"
-    ]
+    ],
+    "editor.wordBasedSuggestions": true,
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.tabCompletion": "on",
+    "editor.parameterHints.enabled": true,
+    "cSpell.language": "en,ru",
 }

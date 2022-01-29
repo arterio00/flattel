@@ -1,4 +1,4 @@
-package com.example.swipe
+package com.example.flattel
 
 import io.flutter.embedding.android.FlutterActivity
 
