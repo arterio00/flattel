@@ -1,54 +1,49 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
+
+import 'package:flutter/widgets.dart';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'src/common/bloc/app_bloc_observer.dart';
+import 'src/feature/ads/ads_bloc/ads_bloc.dart';
+import 'src/feature/ads/logic/firestore.dart';
+import 'src/feature/ads/my_user_cubit/my_user_cubit.dart';
+import 'src/feature/authenticate/auth_bloc/auth_bloc.dart';
+import 'src/feature/authenticate/logic/fire_auth.dart';
+import 'src/my_app.dart';
 
-import 'bloc/ads_bloc/ads_bloc.dart';
-import 'bloc/app_bloc/app_bloc.dart';
-import 'bloc/auth_cubit/auth_cubit.dart';
-import 'bloc/user_bloc/user_bloc.dart';
-import 'data/repository/fire_auth.dart';
-import 'data/repository/firestore.dart';
-import 'my_app.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-  ));
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown]);
-  BlocOverrides.runZoned(() => runApp(MultiRepositoryProvider(
-          providers: [
-            RepositoryProvider<FireStore>(create: (ctx) => FireStore()),
-            RepositoryProvider<FireAuth>(create: (ctx) => FireAuth()),
-          ],
-          child: MultiBlocProvider(providers: [
-            BlocProvider(
-              create: (context) {
-                final auth = context.read<FireAuth>();
-                return AppBloc(auth);
-              },
-            ),
-            BlocProvider(
-              create: (context) {
-                final auth = context.read<FireAuth>();
-                return AuthCubit(auth);
-              },
-            ),
-            BlocProvider(
-              create: (context) {
-                final store = context.read<FireStore>();
-                final appBloc = context.read<AppBloc>();
-                return UserBloc(store, appBloc);
-              },
-            ),
-            BlocProvider(
-              create: (context) {
-                final store = context.read<FireStore>();
-                final appBloc = context.read<AppBloc>();
-                return AdsBloc(appBloc, store);
-              },
-            ),
-          ], child: const MyApp()))));
-}
+void main() => runZonedGuarded<void>(
+      () async {
+        WidgetsFlutterBinding.ensureInitialized();
+        await Firebase.initializeApp();
+        // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        //   statusBarColor: Colors.transparent,
+        // ));
+        SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown]);
+        BlocOverrides.runZoned(
+          () {
+            final store = FireStore();
+            late final AuthBloc authBloc;
+            runApp(
+              MultiBlocProvider(
+                providers: [
+                  BlocProvider<AuthBloc>(
+                    create: (context) => authBloc = AuthBloc(FireAuth(), store),
+                  ),
+                  BlocProvider(
+                    create: (context) => AdsBloc(authBloc, store),
+                  ),
+                  BlocProvider(
+                    create: (context) => MyUserCubit(store, authBloc),
+                  ),
+                ],
+                child: const MyApp(),
+              ),
+            );
+          },
+          blocObserver: AppBlocObserver.instance(),
+        );
+      },
+      (error, stackTrace) {},
+    );
