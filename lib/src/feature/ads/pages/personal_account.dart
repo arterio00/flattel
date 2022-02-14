@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class PersonalAccount extends StatefulWidget {
@@ -12,27 +13,12 @@ class PersonalAccount extends StatefulWidget {
 class _PersonalAccountState extends State<PersonalAccount> {
   late final _controller = TextEditingController();
 
-  bool _submitted = false;
+  final firestore = FirebaseFirestore.instance;
 
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
-  }
-
-  String? get _errorText {
-    final text = _controller.value.text;
-    if (text.isEmpty) {
-      return 'Can\'t be empty';
-    }
-    if (text.length < 4) {
-      return 'Too short';
-    }
-    return null;
-  }
-
-  void _submit() {
-    setState(() => _submitted = true);
   }
 
   @override
@@ -56,7 +42,6 @@ class _PersonalAccountState extends State<PersonalAccount> {
                   decoration: InputDecoration(
                     labelText: 'Enter your name',
                     // the errorText getter *depends* on _controller
-                    errorText: _submitted ? _errorText : null,
                   ),
                 ),
               ),
@@ -64,7 +49,7 @@ class _PersonalAccountState extends State<PersonalAccount> {
                 height: 40,
                 child: ElevatedButton(
                   // the errorText getter *depends* on _controller
-                  onPressed: _controller.value.text.isNotEmpty ? _submit : null,
+                  onPressed: () {},
                   child: Text(
                     'Submit',
                     style: Theme.of(context)

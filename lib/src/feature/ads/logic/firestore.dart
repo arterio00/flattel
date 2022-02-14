@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flattel/src/feature/authenticate/entities/my_user.dart';
 import 'package:flattel/src/feature/ads/entities/ad.dart';
 
@@ -56,5 +59,21 @@ class FireStore {
     final result = _response.collection('ads').snapshots();
     yield* result
         .map((event) => event.docs.map((e) => Ad.fromJson(e.data())).toList());
+  }
+
+  void sendAd(String uidUser, Ad ad, List<File> images) async {
+    List<String> urls = [];
+    final _ref = FirebaseStorage.instance
+        .ref()
+        .child('images/' + uidUser)
+        .child('${DateTime.now()}' '.jpg');
+
+    for (var item in images) {
+      await _ref.putFile(item);
+      var result = await _ref.getDownloadURL();
+      urls.add(result);
+    }
+    ad = ad.copyWith(urlImages: urls);
+    _response.collection('ads').doc(uidUser).set(ad.toJson());
   }
 }

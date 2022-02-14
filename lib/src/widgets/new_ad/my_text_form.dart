@@ -7,7 +7,7 @@ class MyTextFormField extends StatelessWidget {
       this.maxLines = 1,
       this.fontWeight = FontWeight.w400,
       this.fontSize = 14,
-      this.onChanged,
+      this.controller,
       this.textInputAction = TextInputAction.next,
       this.validation})
       : super(
@@ -18,21 +18,20 @@ class MyTextFormField extends StatelessWidget {
   final String? hintText;
   final FontWeight fontWeight;
   final int? fontSize;
-  final Function(String)? onChanged;
+  final TextEditingController? controller;
   final TextInputAction? textInputAction;
   final String? Function(String?)? validation;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: validation,
-      onChanged: onChanged,
+      controller: controller,
       maxLines: maxLines,
       style: const TextStyle(color: Color(0xff27AEA4)),
       decoration: InputDecoration(
         contentPadding: maxLines == 1
-            ? EdgeInsets.symmetric(vertical: 5, horizontal: 10)
+            ? const EdgeInsets.symmetric(vertical: 5, horizontal: 10)
             : null,
         enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
