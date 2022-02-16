@@ -101,7 +101,8 @@ class _PersonalAccountState extends State<PersonalAccount> {
                 title: const Text('Управление подпиской',),
 
                 children: <Widget>[
-                  const ListTile(title: Text('Оплачено до  20.2.2022'),),
+                  const ListTile(title: Text('Оплачено до  20.2.2022'),
+                  ),
                   ListTile(title: ElevatedButton(onPressed:(){ },child: const Text('Подписка'),)),
                   const ListTile(title: Text('Отменить автопродление'),),
                 ],
@@ -123,7 +124,7 @@ class _PersonalAccountState extends State<PersonalAccount> {
                         Container(
                           child: const Text('Мне'),
                           padding: const EdgeInsets.only(left: 15.0),
-                          width: 300 ,
+                          width: 300,
                         ),
                         Radio<SingingCharacter>(
                           value: SingingCharacter.me,
@@ -131,6 +132,7 @@ class _PersonalAccountState extends State<PersonalAccount> {
                           onChanged: (SingingCharacter? value) {
                             setState(() {
                               _character = value;
+                              //getdata(value,);
                             });
                           },
                         )]),
