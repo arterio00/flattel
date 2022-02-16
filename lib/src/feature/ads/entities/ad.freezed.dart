@@ -23,17 +23,39 @@ class _$AdTearOff {
   const _$AdTearOff();
 
   _Ad call(
-      {required String images,
+      {required List<String>? urlImages,
       required String kitchenFloorArea,
       required String street,
       required String totalFloorArea,
-      required String cost}) {
+      required String cost,
+      required String commissionToAgent,
+      required String description,
+      required String apartmentComplex,
+      required String assignment,
+      required String numberOfRooms,
+      required String apartmentLayout,
+      required String condition,
+      required String terrace,
+      required String typeOfHeating,
+      required String calculationOptions,
+      required String communicationMethod}) {
     return _Ad(
-      images: images,
+      urlImages: urlImages,
       kitchenFloorArea: kitchenFloorArea,
       street: street,
       totalFloorArea: totalFloorArea,
       cost: cost,
+      commissionToAgent: commissionToAgent,
+      description: description,
+      apartmentComplex: apartmentComplex,
+      assignment: assignment,
+      numberOfRooms: numberOfRooms,
+      apartmentLayout: apartmentLayout,
+      condition: condition,
+      terrace: terrace,
+      typeOfHeating: typeOfHeating,
+      calculationOptions: calculationOptions,
+      communicationMethod: communicationMethod,
     );
   }
 
@@ -47,11 +69,22 @@ const $Ad = _$AdTearOff();
 
 /// @nodoc
 mixin _$Ad {
-  String get images => throw _privateConstructorUsedError;
+  List<String>? get urlImages => throw _privateConstructorUsedError;
   String get kitchenFloorArea => throw _privateConstructorUsedError;
   String get street => throw _privateConstructorUsedError;
   String get totalFloorArea => throw _privateConstructorUsedError;
   String get cost => throw _privateConstructorUsedError;
+  String get commissionToAgent => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get apartmentComplex => throw _privateConstructorUsedError;
+  String get assignment => throw _privateConstructorUsedError;
+  String get numberOfRooms => throw _privateConstructorUsedError;
+  String get apartmentLayout => throw _privateConstructorUsedError;
+  String get condition => throw _privateConstructorUsedError;
+  String get terrace => throw _privateConstructorUsedError;
+  String get typeOfHeating => throw _privateConstructorUsedError;
+  String get calculationOptions => throw _privateConstructorUsedError;
+  String get communicationMethod => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,11 +96,22 @@ abstract class $AdCopyWith<$Res> {
   factory $AdCopyWith(Ad value, $Res Function(Ad) then) =
       _$AdCopyWithImpl<$Res>;
   $Res call(
-      {String images,
+      {List<String>? urlImages,
       String kitchenFloorArea,
       String street,
       String totalFloorArea,
-      String cost});
+      String cost,
+      String commissionToAgent,
+      String description,
+      String apartmentComplex,
+      String assignment,
+      String numberOfRooms,
+      String apartmentLayout,
+      String condition,
+      String terrace,
+      String typeOfHeating,
+      String calculationOptions,
+      String communicationMethod});
 }
 
 /// @nodoc
@@ -80,17 +124,28 @@ class _$AdCopyWithImpl<$Res> implements $AdCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? images = freezed,
+    Object? urlImages = freezed,
     Object? kitchenFloorArea = freezed,
     Object? street = freezed,
     Object? totalFloorArea = freezed,
     Object? cost = freezed,
+    Object? commissionToAgent = freezed,
+    Object? description = freezed,
+    Object? apartmentComplex = freezed,
+    Object? assignment = freezed,
+    Object? numberOfRooms = freezed,
+    Object? apartmentLayout = freezed,
+    Object? condition = freezed,
+    Object? terrace = freezed,
+    Object? typeOfHeating = freezed,
+    Object? calculationOptions = freezed,
+    Object? communicationMethod = freezed,
   }) {
     return _then(_value.copyWith(
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as String,
+      urlImages: urlImages == freezed
+          ? _value.urlImages
+          : urlImages // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       kitchenFloorArea: kitchenFloorArea == freezed
           ? _value.kitchenFloorArea
           : kitchenFloorArea // ignore: cast_nullable_to_non_nullable
@@ -107,6 +162,50 @@ class _$AdCopyWithImpl<$Res> implements $AdCopyWith<$Res> {
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
               as String,
+      commissionToAgent: commissionToAgent == freezed
+          ? _value.commissionToAgent
+          : commissionToAgent // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      apartmentComplex: apartmentComplex == freezed
+          ? _value.apartmentComplex
+          : apartmentComplex // ignore: cast_nullable_to_non_nullable
+              as String,
+      assignment: assignment == freezed
+          ? _value.assignment
+          : assignment // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfRooms: numberOfRooms == freezed
+          ? _value.numberOfRooms
+          : numberOfRooms // ignore: cast_nullable_to_non_nullable
+              as String,
+      apartmentLayout: apartmentLayout == freezed
+          ? _value.apartmentLayout
+          : apartmentLayout // ignore: cast_nullable_to_non_nullable
+              as String,
+      condition: condition == freezed
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String,
+      terrace: terrace == freezed
+          ? _value.terrace
+          : terrace // ignore: cast_nullable_to_non_nullable
+              as String,
+      typeOfHeating: typeOfHeating == freezed
+          ? _value.typeOfHeating
+          : typeOfHeating // ignore: cast_nullable_to_non_nullable
+              as String,
+      calculationOptions: calculationOptions == freezed
+          ? _value.calculationOptions
+          : calculationOptions // ignore: cast_nullable_to_non_nullable
+              as String,
+      communicationMethod: communicationMethod == freezed
+          ? _value.communicationMethod
+          : communicationMethod // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -117,11 +216,22 @@ abstract class _$AdCopyWith<$Res> implements $AdCopyWith<$Res> {
       __$AdCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String images,
+      {List<String>? urlImages,
       String kitchenFloorArea,
       String street,
       String totalFloorArea,
-      String cost});
+      String cost,
+      String commissionToAgent,
+      String description,
+      String apartmentComplex,
+      String assignment,
+      String numberOfRooms,
+      String apartmentLayout,
+      String condition,
+      String terrace,
+      String typeOfHeating,
+      String calculationOptions,
+      String communicationMethod});
 }
 
 /// @nodoc
@@ -135,17 +245,28 @@ class __$AdCopyWithImpl<$Res> extends _$AdCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? images = freezed,
+    Object? urlImages = freezed,
     Object? kitchenFloorArea = freezed,
     Object? street = freezed,
     Object? totalFloorArea = freezed,
     Object? cost = freezed,
+    Object? commissionToAgent = freezed,
+    Object? description = freezed,
+    Object? apartmentComplex = freezed,
+    Object? assignment = freezed,
+    Object? numberOfRooms = freezed,
+    Object? apartmentLayout = freezed,
+    Object? condition = freezed,
+    Object? terrace = freezed,
+    Object? typeOfHeating = freezed,
+    Object? calculationOptions = freezed,
+    Object? communicationMethod = freezed,
   }) {
     return _then(_Ad(
-      images: images == freezed
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as String,
+      urlImages: urlImages == freezed
+          ? _value.urlImages
+          : urlImages // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       kitchenFloorArea: kitchenFloorArea == freezed
           ? _value.kitchenFloorArea
           : kitchenFloorArea // ignore: cast_nullable_to_non_nullable
@@ -162,6 +283,50 @@ class __$AdCopyWithImpl<$Res> extends _$AdCopyWithImpl<$Res>
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
               as String,
+      commissionToAgent: commissionToAgent == freezed
+          ? _value.commissionToAgent
+          : commissionToAgent // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      apartmentComplex: apartmentComplex == freezed
+          ? _value.apartmentComplex
+          : apartmentComplex // ignore: cast_nullable_to_non_nullable
+              as String,
+      assignment: assignment == freezed
+          ? _value.assignment
+          : assignment // ignore: cast_nullable_to_non_nullable
+              as String,
+      numberOfRooms: numberOfRooms == freezed
+          ? _value.numberOfRooms
+          : numberOfRooms // ignore: cast_nullable_to_non_nullable
+              as String,
+      apartmentLayout: apartmentLayout == freezed
+          ? _value.apartmentLayout
+          : apartmentLayout // ignore: cast_nullable_to_non_nullable
+              as String,
+      condition: condition == freezed
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
+              as String,
+      terrace: terrace == freezed
+          ? _value.terrace
+          : terrace // ignore: cast_nullable_to_non_nullable
+              as String,
+      typeOfHeating: typeOfHeating == freezed
+          ? _value.typeOfHeating
+          : typeOfHeating // ignore: cast_nullable_to_non_nullable
+              as String,
+      calculationOptions: calculationOptions == freezed
+          ? _value.calculationOptions
+          : calculationOptions // ignore: cast_nullable_to_non_nullable
+              as String,
+      communicationMethod: communicationMethod == freezed
+          ? _value.communicationMethod
+          : communicationMethod // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -170,16 +335,27 @@ class __$AdCopyWithImpl<$Res> extends _$AdCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Ad implements _Ad {
   const _$_Ad(
-      {required this.images,
+      {required this.urlImages,
       required this.kitchenFloorArea,
       required this.street,
       required this.totalFloorArea,
-      required this.cost});
+      required this.cost,
+      required this.commissionToAgent,
+      required this.description,
+      required this.apartmentComplex,
+      required this.assignment,
+      required this.numberOfRooms,
+      required this.apartmentLayout,
+      required this.condition,
+      required this.terrace,
+      required this.typeOfHeating,
+      required this.calculationOptions,
+      required this.communicationMethod});
 
   factory _$_Ad.fromJson(Map<String, dynamic> json) => _$$_AdFromJson(json);
 
   @override
-  final String images;
+  final List<String>? urlImages;
   @override
   final String kitchenFloorArea;
   @override
@@ -188,10 +364,32 @@ class _$_Ad implements _Ad {
   final String totalFloorArea;
   @override
   final String cost;
+  @override
+  final String commissionToAgent;
+  @override
+  final String description;
+  @override
+  final String apartmentComplex;
+  @override
+  final String assignment;
+  @override
+  final String numberOfRooms;
+  @override
+  final String apartmentLayout;
+  @override
+  final String condition;
+  @override
+  final String terrace;
+  @override
+  final String typeOfHeating;
+  @override
+  final String calculationOptions;
+  @override
+  final String communicationMethod;
 
   @override
   String toString() {
-    return 'Ad(images: $images, kitchenFloorArea: $kitchenFloorArea, street: $street, totalFloorArea: $totalFloorArea, cost: $cost)';
+    return 'Ad(urlImages: $urlImages, kitchenFloorArea: $kitchenFloorArea, street: $street, totalFloorArea: $totalFloorArea, cost: $cost, commissionToAgent: $commissionToAgent, description: $description, apartmentComplex: $apartmentComplex, assignment: $assignment, numberOfRooms: $numberOfRooms, apartmentLayout: $apartmentLayout, condition: $condition, terrace: $terrace, typeOfHeating: $typeOfHeating, calculationOptions: $calculationOptions, communicationMethod: $communicationMethod)';
   }
 
   @override
@@ -199,23 +397,54 @@ class _$_Ad implements _Ad {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Ad &&
-            const DeepCollectionEquality().equals(other.images, images) &&
+            const DeepCollectionEquality().equals(other.urlImages, urlImages) &&
             const DeepCollectionEquality()
                 .equals(other.kitchenFloorArea, kitchenFloorArea) &&
             const DeepCollectionEquality().equals(other.street, street) &&
             const DeepCollectionEquality()
                 .equals(other.totalFloorArea, totalFloorArea) &&
-            const DeepCollectionEquality().equals(other.cost, cost));
+            const DeepCollectionEquality().equals(other.cost, cost) &&
+            const DeepCollectionEquality()
+                .equals(other.commissionToAgent, commissionToAgent) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.apartmentComplex, apartmentComplex) &&
+            const DeepCollectionEquality()
+                .equals(other.assignment, assignment) &&
+            const DeepCollectionEquality()
+                .equals(other.numberOfRooms, numberOfRooms) &&
+            const DeepCollectionEquality()
+                .equals(other.apartmentLayout, apartmentLayout) &&
+            const DeepCollectionEquality().equals(other.condition, condition) &&
+            const DeepCollectionEquality().equals(other.terrace, terrace) &&
+            const DeepCollectionEquality()
+                .equals(other.typeOfHeating, typeOfHeating) &&
+            const DeepCollectionEquality()
+                .equals(other.calculationOptions, calculationOptions) &&
+            const DeepCollectionEquality()
+                .equals(other.communicationMethod, communicationMethod));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(images),
+      const DeepCollectionEquality().hash(urlImages),
       const DeepCollectionEquality().hash(kitchenFloorArea),
       const DeepCollectionEquality().hash(street),
       const DeepCollectionEquality().hash(totalFloorArea),
-      const DeepCollectionEquality().hash(cost));
+      const DeepCollectionEquality().hash(cost),
+      const DeepCollectionEquality().hash(commissionToAgent),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(apartmentComplex),
+      const DeepCollectionEquality().hash(assignment),
+      const DeepCollectionEquality().hash(numberOfRooms),
+      const DeepCollectionEquality().hash(apartmentLayout),
+      const DeepCollectionEquality().hash(condition),
+      const DeepCollectionEquality().hash(terrace),
+      const DeepCollectionEquality().hash(typeOfHeating),
+      const DeepCollectionEquality().hash(calculationOptions),
+      const DeepCollectionEquality().hash(communicationMethod));
 
   @JsonKey(ignore: true)
   @override
@@ -229,16 +458,27 @@ class _$_Ad implements _Ad {
 
 abstract class _Ad implements Ad {
   const factory _Ad(
-      {required String images,
+      {required List<String>? urlImages,
       required String kitchenFloorArea,
       required String street,
       required String totalFloorArea,
-      required String cost}) = _$_Ad;
+      required String cost,
+      required String commissionToAgent,
+      required String description,
+      required String apartmentComplex,
+      required String assignment,
+      required String numberOfRooms,
+      required String apartmentLayout,
+      required String condition,
+      required String terrace,
+      required String typeOfHeating,
+      required String calculationOptions,
+      required String communicationMethod}) = _$_Ad;
 
   factory _Ad.fromJson(Map<String, dynamic> json) = _$_Ad.fromJson;
 
   @override
-  String get images;
+  List<String>? get urlImages;
   @override
   String get kitchenFloorArea;
   @override
@@ -247,6 +487,28 @@ abstract class _Ad implements Ad {
   String get totalFloorArea;
   @override
   String get cost;
+  @override
+  String get commissionToAgent;
+  @override
+  String get description;
+  @override
+  String get apartmentComplex;
+  @override
+  String get assignment;
+  @override
+  String get numberOfRooms;
+  @override
+  String get apartmentLayout;
+  @override
+  String get condition;
+  @override
+  String get terrace;
+  @override
+  String get typeOfHeating;
+  @override
+  String get calculationOptions;
+  @override
+  String get communicationMethod;
   @override
   @JsonKey(ignore: true)
   _$AdCopyWith<_Ad> get copyWith => throw _privateConstructorUsedError;

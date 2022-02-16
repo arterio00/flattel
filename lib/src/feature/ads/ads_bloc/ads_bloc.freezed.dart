@@ -24,9 +24,10 @@ class _$AdsEventTearOff {
     );
   }
 
-  _SendAds sendAd(Ad ad) {
-    return _SendAds(
+  _SendAd sendAd(Ad ad, List<File> images) {
+    return _SendAd(
       ad,
+      images,
     );
   }
 
@@ -43,21 +44,21 @@ mixin _$AdsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Ad>? ads) getAds,
-    required TResult Function(Ad ad) sendAd,
+    required TResult Function(Ad ad, List<File> images) sendAd,
     required TResult Function() setMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
     required TResult orElse(),
   }) =>
@@ -65,21 +66,21 @@ mixin _$AdsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAds value) getAds,
-    required TResult Function(_SendAds value) sendAd,
+    required TResult Function(_SendAd value) sendAd,
     required TResult Function(_SetMap value) setMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
     required TResult orElse(),
   }) =>
@@ -164,7 +165,7 @@ class _$_GetAds implements _GetAds {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Ad>? ads) getAds,
-    required TResult Function(Ad ad) sendAd,
+    required TResult Function(Ad ad, List<File> images) sendAd,
     required TResult Function() setMap,
   }) {
     return getAds(ads);
@@ -174,7 +175,7 @@ class _$_GetAds implements _GetAds {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
   }) {
     return getAds?.call(ads);
@@ -184,7 +185,7 @@ class _$_GetAds implements _GetAds {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
     required TResult orElse(),
   }) {
@@ -198,7 +199,7 @@ class _$_GetAds implements _GetAds {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAds value) getAds,
-    required TResult Function(_SendAds value) sendAd,
+    required TResult Function(_SendAd value) sendAd,
     required TResult Function(_SetMap value) setMap,
   }) {
     return getAds(this);
@@ -208,7 +209,7 @@ class _$_GetAds implements _GetAds {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
   }) {
     return getAds?.call(this);
@@ -218,7 +219,7 @@ class _$_GetAds implements _GetAds {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
     required TResult orElse(),
   }) {
@@ -238,32 +239,37 @@ abstract class _GetAds implements AdsEvent {
 }
 
 /// @nodoc
-abstract class _$SendAdsCopyWith<$Res> {
-  factory _$SendAdsCopyWith(_SendAds value, $Res Function(_SendAds) then) =
-      __$SendAdsCopyWithImpl<$Res>;
-  $Res call({Ad ad});
+abstract class _$SendAdCopyWith<$Res> {
+  factory _$SendAdCopyWith(_SendAd value, $Res Function(_SendAd) then) =
+      __$SendAdCopyWithImpl<$Res>;
+  $Res call({Ad ad, List<File> images});
 
   $AdCopyWith<$Res> get ad;
 }
 
 /// @nodoc
-class __$SendAdsCopyWithImpl<$Res> extends _$AdsEventCopyWithImpl<$Res>
-    implements _$SendAdsCopyWith<$Res> {
-  __$SendAdsCopyWithImpl(_SendAds _value, $Res Function(_SendAds) _then)
-      : super(_value, (v) => _then(v as _SendAds));
+class __$SendAdCopyWithImpl<$Res> extends _$AdsEventCopyWithImpl<$Res>
+    implements _$SendAdCopyWith<$Res> {
+  __$SendAdCopyWithImpl(_SendAd _value, $Res Function(_SendAd) _then)
+      : super(_value, (v) => _then(v as _SendAd));
 
   @override
-  _SendAds get _value => super._value as _SendAds;
+  _SendAd get _value => super._value as _SendAd;
 
   @override
   $Res call({
     Object? ad = freezed,
+    Object? images = freezed,
   }) {
-    return _then(_SendAds(
+    return _then(_SendAd(
       ad == freezed
           ? _value.ad
           : ad // ignore: cast_nullable_to_non_nullable
               as Ad,
+      images == freezed
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<File>,
     ));
   }
 
@@ -277,64 +283,69 @@ class __$SendAdsCopyWithImpl<$Res> extends _$AdsEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SendAds implements _SendAds {
-  const _$_SendAds(this.ad);
+class _$_SendAd implements _SendAd {
+  const _$_SendAd(this.ad, this.images);
 
   @override
   final Ad ad;
+  @override
+  final List<File> images;
 
   @override
   String toString() {
-    return 'AdsEvent.sendAd(ad: $ad)';
+    return 'AdsEvent.sendAd(ad: $ad, images: $images)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SendAds &&
-            const DeepCollectionEquality().equals(other.ad, ad));
+            other is _SendAd &&
+            const DeepCollectionEquality().equals(other.ad, ad) &&
+            const DeepCollectionEquality().equals(other.images, images));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(ad));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(ad),
+      const DeepCollectionEquality().hash(images));
 
   @JsonKey(ignore: true)
   @override
-  _$SendAdsCopyWith<_SendAds> get copyWith =>
-      __$SendAdsCopyWithImpl<_SendAds>(this, _$identity);
+  _$SendAdCopyWith<_SendAd> get copyWith =>
+      __$SendAdCopyWithImpl<_SendAd>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Ad>? ads) getAds,
-    required TResult Function(Ad ad) sendAd,
+    required TResult Function(Ad ad, List<File> images) sendAd,
     required TResult Function() setMap,
   }) {
-    return sendAd(ad);
+    return sendAd(ad, images);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
   }) {
-    return sendAd?.call(ad);
+    return sendAd?.call(ad, images);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
     required TResult orElse(),
   }) {
     if (sendAd != null) {
-      return sendAd(ad);
+      return sendAd(ad, images);
     }
     return orElse();
   }
@@ -343,7 +354,7 @@ class _$_SendAds implements _SendAds {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAds value) getAds,
-    required TResult Function(_SendAds value) sendAd,
+    required TResult Function(_SendAd value) sendAd,
     required TResult Function(_SetMap value) setMap,
   }) {
     return sendAd(this);
@@ -353,7 +364,7 @@ class _$_SendAds implements _SendAds {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
   }) {
     return sendAd?.call(this);
@@ -363,7 +374,7 @@ class _$_SendAds implements _SendAds {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
     required TResult orElse(),
   }) {
@@ -374,13 +385,13 @@ class _$_SendAds implements _SendAds {
   }
 }
 
-abstract class _SendAds implements AdsEvent {
-  const factory _SendAds(Ad ad) = _$_SendAds;
+abstract class _SendAd implements AdsEvent {
+  const factory _SendAd(Ad ad, List<File> images) = _$_SendAd;
 
   Ad get ad;
+  List<File> get images;
   @JsonKey(ignore: true)
-  _$SendAdsCopyWith<_SendAds> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$SendAdCopyWith<_SendAd> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -422,7 +433,7 @@ class _$_SetMap implements _SetMap {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<Ad>? ads) getAds,
-    required TResult Function(Ad ad) sendAd,
+    required TResult Function(Ad ad, List<File> images) sendAd,
     required TResult Function() setMap,
   }) {
     return setMap();
@@ -432,7 +443,7 @@ class _$_SetMap implements _SetMap {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
   }) {
     return setMap?.call();
@@ -442,7 +453,7 @@ class _$_SetMap implements _SetMap {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<Ad>? ads)? getAds,
-    TResult Function(Ad ad)? sendAd,
+    TResult Function(Ad ad, List<File> images)? sendAd,
     TResult Function()? setMap,
     required TResult orElse(),
   }) {
@@ -456,7 +467,7 @@ class _$_SetMap implements _SetMap {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetAds value) getAds,
-    required TResult Function(_SendAds value) sendAd,
+    required TResult Function(_SendAd value) sendAd,
     required TResult Function(_SetMap value) setMap,
   }) {
     return setMap(this);
@@ -466,7 +477,7 @@ class _$_SetMap implements _SetMap {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
   }) {
     return setMap?.call(this);
@@ -476,7 +487,7 @@ class _$_SetMap implements _SetMap {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetAds value)? getAds,
-    TResult Function(_SendAds value)? sendAd,
+    TResult Function(_SendAd value)? sendAd,
     TResult Function(_SetMap value)? setMap,
     required TResult orElse(),
   }) {

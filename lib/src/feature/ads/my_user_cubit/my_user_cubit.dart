@@ -23,7 +23,7 @@ class MyUserCubit extends Cubit<MyUserState> {
   void getMyUser() async {
     final myUser = await _fireStore.getUser(uidUser: _authBloc.state.user!.uid);
     print(myUser);
-    print('fgg');
+
     emit(MyUserState.success(myUser));
   }
 

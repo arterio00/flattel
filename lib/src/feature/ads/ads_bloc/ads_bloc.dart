@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,6 +15,7 @@ part 'ads_bloc.freezed.dart';
 class AdsBloc extends Bloc<AdsEvent, AdsState> {
   AdsBloc(this._authBloc, this._firestore) : super(const _Loading()) {
     on<_GetAds>(_fetchAds);
+    on<_SendAd>(_sendAd);
     _firestore.fetchAds().listen((ads) {
       print(ads);
       add(AdsEvent.getAds(ads));
@@ -26,5 +29,9 @@ class AdsBloc extends Bloc<AdsEvent, AdsState> {
     emit(event.ads == null
         ? const AdsState.loading()
         : AdsState.loaded(event.ads!));
+  }
+
+  void _sendAd(_SendAd event, Emitter<AdsState> emit) {
+    _firestore.sendAd(_authBloc.state.user!.uid, event.ad, event.images);
   }
 }

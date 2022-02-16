@@ -15,7 +15,7 @@ class MyGridView extends StatelessWidget {
     return BlocBuilder<AdsBloc, AdsState>(
         bloc: context.read<AdsBloc>(),
         builder: (context, state) => state.when(
-            loading: () => const CircularProgressIndicator(),
+            loading: () => const Center(child: CircularProgressIndicator()),
             loaded: (ads) => Column(
                   children: [
                     const SizedBox(
@@ -47,7 +47,7 @@ class MyGridView extends StatelessWidget {
                                         width: double.infinity,
                                         height: 120,
                                         child: Image.network(
-                                          ads[index].images,
+                                          ads[index].urlImages?[index] ?? '',
                                           loadingBuilder: (context, child,
                                               loadingProgress) {
                                             if (loadingProgress == null) {
@@ -74,13 +74,13 @@ class MyGridView extends StatelessWidget {
                                   ),
                                   const Spacer(),
                                   Text(
-                                    ads[index].images ?? '',
+                                    ads[index].street,
                                     style:
                                         Theme.of(context).textTheme.headline1,
                                   ),
                                   const Spacer(),
                                   Text(
-                                    ads[index].street ?? '',
+                                    ads[index].street,
                                     style:
                                         Theme.of(context).textTheme.bodyText1,
                                   )
