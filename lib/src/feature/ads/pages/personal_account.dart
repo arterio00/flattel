@@ -1,10 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flattel/src/widgets/perconal_widget.dart';
+//import '../widgets/perconal_widget.dart';
 
-enum SingingCharacter { me, meandagent, agent, nothings }
+enum SingingCharacter { me, agent, nothings }
 
 class PersonalAccount extends StatefulWidget {
+
   const PersonalAccount({
+
     Key? key,
   }) : super(key: key);
 
@@ -13,10 +17,17 @@ class PersonalAccount extends StatefulWidget {
 }
 
 class _PersonalAccountState extends State<PersonalAccount> {
-  SingingCharacter? _character = SingingCharacter.me;
+  cardWid? cW= cardWid();
+  SingingCharacter? character = SingingCharacter.me;
+  static const Map<String,SingingCharacter> listtest = {'Мне': SingingCharacter.me,'Агенту': SingingCharacter.agent,'Отказаться': SingingCharacter.nothings  };
   late final _controller = TextEditingController();
 
   final firestore = FirebaseFirestore.instance;
+
+  @override
+  void intState(){
+    //cW = cardWid();
+  }
 
   @override
   void dispose() {
@@ -222,73 +233,7 @@ class _PersonalAccountState extends State<PersonalAccount> {
                     title: const Text(
                       'Уведомления',
                     ),
-                    children: <Widget>[
-                      Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
-                        Container(
-                          child: const Text('Мне'),
-                          padding: const EdgeInsets.only(left: 15.0),
-                          width: 300,
-                        ),
-                        Radio<SingingCharacter>(
-                          value: SingingCharacter.me,
-                          groupValue: _character,
-                          onChanged: (SingingCharacter? value) {
-                            setState(() {
-                              _character = value;
-                              //getdata(value,);
-                            });
-                          },
-                        )
-                      ]),
-                      Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
-                        Container(
-                          child: const Text('Мне и агенту'),
-                          padding: const EdgeInsets.only(left: 15.0),
-                          width: 300,
-                        ),
-                        Radio<SingingCharacter>(
-                          value: SingingCharacter.meandagent,
-                          groupValue: _character,
-                          onChanged: (SingingCharacter? value) {
-                            setState(() {
-                              _character = value;
-                            });
-                          },
-                        )
-                      ]),
-                      Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
-                        Container(
-                          child: const Text('Агенту'),
-                          padding: const EdgeInsets.only(left: 15.0),
-                          width: 300,
-                        ),
-                        Radio<SingingCharacter>(
-                          value: SingingCharacter.agent,
-                          groupValue: _character,
-                          onChanged: (SingingCharacter? value) {
-                            setState(() {
-                              _character = value;
-                            });
-                          },
-                        )
-                      ]),
-                      Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
-                        Container(
-                          child: const Text('Отключить'),
-                          padding: const EdgeInsets.only(left: 15.0),
-                          width: 300,
-                        ),
-                        Radio<SingingCharacter>(
-                          value: SingingCharacter.nothings,
-                          groupValue: _character,
-                          onChanged: (SingingCharacter? value) {
-                            setState(() {
-                              _character = value;
-                            });
-                          },
-                        )
-                      ]),
-                    ],
+                    children: listtest.entries.map((e) => cW!.cardWidget(e.key,e.value)).toList(),
                   ),
                 )
               ],
@@ -298,4 +243,5 @@ class _PersonalAccountState extends State<PersonalAccount> {
       child: Text('text menu'),
     );*/
   }
+
 }
